@@ -294,8 +294,8 @@ class OuterbasePluginTable_$PLUGIN_ID extends HTMLElement {
                     </div>
                 </div>
 
-                <div style="display: flex; flex-direction: column; gap: 12px;">
-                    <h1>What Next?</h1>
+                <div style="display: flex; flex-direction: row; gap: 12px; padding-top:25px">
+                    <div class="mx-3 text-sm text-neutral-900 dark:text-neutral-50">Viewing ${this.config.metadata.offset}-${this.config.metadata.limit} of ${this.config.metadata.count}</div>
                     <button id="previousPageButton" ${(this.config.metadata.page <= 1) ? "disabled" : ""}>Previous Page</button>
                     <button id="nextPageButton" ${(this.config.metadata.page >= this.config.metadata.pageCount) ? "disabled" : ""}>Next Page</button>
                 </div>
@@ -316,7 +316,7 @@ class OuterbasePluginTable_$PLUGIN_ID extends HTMLElement {
                     map: window.gmap,
                     position: { lat: row[this.config.latitudeKey], lng: row[this.config.longitudeKey] },
                     gmpDraggable: false,
-                    title: "${row[this.config.titleKey]}",
+                    title: row[this.config.titleKey],
                 });
 
                 const content = document.createElement('div');
